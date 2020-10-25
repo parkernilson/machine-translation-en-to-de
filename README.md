@@ -9,6 +9,4 @@ Run this project image from docker hub:
 ```
 $ docker run parkernilson/machine-translation-en-to-de "Add a fun sentence to translate here!"
 ```
-NOTE: **`docker run`** will first try to find the image on your computer, and if it can't it will download it from [this project's repo on Docker hub.](https://hub.docker.com/repository/docker/parkernilson/machine-translation-en-to-de)
-
-Also, NOTE: This image is quite large (about 700MB compressed) since it uses Tensorflow, which is a large package, and it also contains files for a pre-trained model which is also very large.
+NOTE: This image is quite large, since it requires two large python libraries 'Tensorflow' and HuggingFace's 'Transformers', and it also includes a large (about 1 GB) pretrained model in one of the image layers. Thus, it might take some time to download and spin up.

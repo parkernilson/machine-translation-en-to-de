@@ -1,8 +1,5 @@
 FROM python:3.8-slim-buster
 
-# establish a volume for saving models for persistence (so they don't need to be loaded every time)
-VOLUME /saved_models
-
 # work within the /code directory of the image
 WORKDIR /code
 
@@ -14,6 +11,10 @@ COPY requirements.txt .
 
 # install the python dependencies
 RUN pip install -r requirements.txt
+
+# download the pretrained model to the image
+COPY download-model.py .
+RUN [ "python", "download-model.py" ]
 
 # copy over the script itself
 COPY index.py .
